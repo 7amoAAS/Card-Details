@@ -1,0 +1,274 @@
+@use "sass/index" as *;
+@use "sass/variables" as *;
+@use "sass/mixins" as *;
+
+.main {
+	position: relative;
+	height: 100vh;
+	@include md {
+		& {
+			display: block;
+		}
+	}
+	.background {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: -1;
+		.desktop {
+			width: 33%;
+			height: 100vh;
+		}
+		.mobile {
+			width: 100%;
+			display: none;
+		}
+		@include md {
+			.desktop {
+				display: none;
+			}
+			.mobile {
+				display: block;
+				height: 300px;
+			}
+		}
+	}
+	.main-container {
+		display: flex;
+		justify-content: space-between;
+		place-items: center;
+		height: 100vh;
+		gap: 5rem;
+		@include md {
+			& {
+				height: 100%;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+		.card-result {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			padding: 1rem;
+			@include md {
+				& {
+					flex-direction: column-reverse;
+				}
+			}
+			.big-card-front {
+				position: relative;
+				background: url(../imgs/bg-card-front.png) no-repeat center / cover;
+				width: 400px;
+				height: 220px;
+				border-radius: $radius;
+				box-shadow: $dark-shadow;
+				&::before {
+					content: url(../imgs/card-logo.svg);
+					position: absolute;
+					width: 60px;
+					padding: 1.5rem;
+				}
+				@include md {
+					& {
+						position: absolute;
+						top: 8rem;
+						width: 350px;
+						height: 200px;
+					}
+				}
+				.card-info {
+					color: $clr-white;
+					.card-number {
+						span {
+							width: 100%;
+							position: absolute;
+							bottom: 4rem;
+							font-size: $small-size-I;
+							text-align: center;
+							letter-spacing: 2px;
+						}
+					}
+					.card-holder {
+						display: flex;
+						justify-content: space-between;
+						padding: 0 1.5rem;
+						p {
+							position: absolute;
+							bottom: 1rem;
+							text-transform: uppercase;
+						}
+						.exp-date {
+							right: 1.5rem;
+						}
+					}
+				}
+			}
+			.big-card-back {
+				position: relative;
+				background: url(../imgs/bg-card-back.png) no-repeat center / cover;
+				width: 400px;
+				height: 220px;
+				margin-left: 4rem;
+				border-radius: $radius;
+				box-shadow: $dark-shadow;
+				z-index: -1;
+				@include md {
+					& {
+						width: 350px;
+						height: 200px;
+					}
+				}
+				.card-info {
+					.cvc {
+						position: absolute;
+						top: 49%;
+						transform: translateY(-50%);
+						right: 4rem;
+						letter-spacing: 1.5px;
+						color: $clr-white;
+					}
+				}
+			}
+		}
+		.card-form {
+			&.hide {
+				display: none;
+			}
+			@include md {
+				& {
+					margin-top: 5rem;
+				}
+			}
+			form {
+				padding: 0.5rem;
+				.card-holder {
+					& > div {
+						margin-bottom: 1rem;
+						input {
+							width: 100%;
+							height: 2.5rem;
+							margin-top: 0.3rem;
+							font-size: $extra-small-size-IIII;
+							font-weight: 500;
+							color: $clr-grey-3;
+							padding: 0.6rem;
+							font-family: Space Grotesk;
+							&:focus {
+								outline: none;
+							}
+							&::placeholder {
+								color: $clr-grey-2;
+							}
+						}
+					}
+					label {
+						text-transform: uppercase;
+						letter-spacing: 1.5px;
+					}
+					input {
+						border: 2px solid $clr-grey-1;
+						border-radius: 6px;
+						padding: 0.5rem;
+					}
+					input[type="number"] {
+						-moz-appearance: textfield;
+					}
+					.card-number {
+						.wrong-msg {
+							display: none;
+							margin-top: 0.5rem;
+							color: red;
+						}
+					}
+					.card-info-date {
+						display: flex;
+						align-items: flex-start;
+						flex-wrap: wrap;
+						gap: 1rem;
+						label {
+							font-size: $extra-small-size-I;
+							font-weight: 600;
+							letter-spacing: 1.5px;
+						}
+						.wrong-msg {
+							display: none;
+							margin-top: 0.5rem;
+							color: red;
+						}
+						.exp-date {
+							flex: 1;
+							.input {
+								display: flex;
+								gap: 0.5rem;
+							}
+						}
+						.cvc {
+							flex: 1;
+							.wrong-msg {
+								display: none;
+								margin-top: 0.5rem;
+								color: red;
+							}
+						}
+					}
+				}
+				.submit {
+					button {
+						width: 100%;
+						padding: 0.8rem;
+						background-color: $clr-grey-3;
+						color: $clr-white;
+						font-size: $extra-small-size-III;
+						font-family: inherit;
+						border: none;
+						border-radius: $radius;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		.complete-msg {
+			width: 100%;
+			text-align: center;
+			&.hide {
+				display: none;
+			}
+			@include md {
+				margin-top: 5rem;
+			}
+			.img {
+				margin-bottom: 1.5rem;
+			}
+			.msg {
+				h2 {
+					text-transform: uppercase;
+					letter-spacing: 1.5px;
+					color: $clr-grey-3;
+					margin-bottom: 1rem;
+				}
+				p {
+					font-weight: 600;
+					letter-spacing: 0.5px;
+					margin-bottom: 2.5rem;
+					color: $clr-grey-2;
+				}
+			}
+			.btn {
+				text-align: center;
+				button {
+					width: 100%;
+					padding: 0.8rem;
+					background-color: $clr-grey-3;
+					color: $clr-white;
+					font-size: $extra-small-size-III;
+					font-family: inherit;
+					border: none;
+					border-radius: $radius;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

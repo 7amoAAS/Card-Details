@@ -1,0 +1,442 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Space Grotesk, serif;
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+
+h1,
+h2 {
+  font-size: 1.5625rem;
+}
+
+p {
+  letter-spacing: 1.5px;
+}
+
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  color: hsl(270deg, 3%, 87%);
+}
+
+img {
+  max-width: 100%;
+}
+
+.c-i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.flex-f-g {
+  gap: 1.5rem;
+}
+
+.container {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Very Small */
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+/* Medium */
+@media (min-width: 991px) {
+  .container {
+    width: 960px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+/* Extra Large */
+@media (min-width: 1400px) {
+  .container {
+    width: 1320px;
+  }
+}
+.main {
+  position: relative;
+  height: 100vh;
+}
+@media screen and (max-width: 991px) {
+  .main {
+    display: block;
+  }
+}
+.main .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.main .background .desktop {
+  width: 33%;
+  height: 100vh;
+}
+.main .background .mobile {
+  width: 100%;
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .main .background .desktop {
+    display: none;
+  }
+  .main .background .mobile {
+    display: block;
+    height: 300px;
+  }
+}
+.main .main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  place-items: center;
+  height: 100vh;
+  gap: 5rem;
+}
+@media screen and (max-width: 991px) {
+  .main .main-container {
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.main .main-container .card-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+@media screen and (max-width: 991px) {
+  .main .main-container .card-result {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+.main .main-container .card-result .big-card-front {
+  position: relative;
+  background: url(../imgs/bg-card-front.png) no-repeat center/cover;
+  width: 400px;
+  height: 220px;
+  border-radius: 0.625rem;
+  -webkit-box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+}
+.main .main-container .card-result .big-card-front::before {
+  content: url(../imgs/card-logo.svg);
+  position: absolute;
+  width: 60px;
+  padding: 1.5rem;
+}
+@media screen and (max-width: 991px) {
+  .main .main-container .card-result .big-card-front {
+    position: absolute;
+    top: 8rem;
+    width: 350px;
+    height: 200px;
+  }
+}
+.main .main-container .card-result .big-card-front .card-info {
+  color: #ffffff;
+}
+.main .main-container .card-result .big-card-front .card-info .card-number span {
+  width: 100%;
+  position: absolute;
+  bottom: 4rem;
+  font-size: 1.5625rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.main .main-container .card-result .big-card-front .card-info .card-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.main .main-container .card-result .big-card-front .card-info .card-holder p {
+  position: absolute;
+  bottom: 1rem;
+  text-transform: uppercase;
+}
+.main .main-container .card-result .big-card-front .card-info .card-holder .exp-date {
+  right: 1.5rem;
+}
+.main .main-container .card-result .big-card-back {
+  position: relative;
+  background: url(../imgs/bg-card-back.png) no-repeat center/cover;
+  width: 400px;
+  height: 220px;
+  margin-left: 4rem;
+  border-radius: 0.625rem;
+  -webkit-box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+@media screen and (max-width: 991px) {
+  .main .main-container .card-result .big-card-back {
+    width: 350px;
+    height: 200px;
+  }
+}
+.main .main-container .card-result .big-card-back .card-info .cvc {
+  position: absolute;
+  top: 49%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 4rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+.main .main-container .card-form.hide {
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .main .main-container .card-form {
+    margin-top: 5rem;
+  }
+}
+.main .main-container .card-form form {
+  padding: 0.5rem;
+}
+.main .main-container .card-form form .card-holder > div {
+  margin-bottom: 1rem;
+}
+.main .main-container .card-form form .card-holder > div input {
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.3rem;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  color: hsl(278deg, 68%, 11%);
+  padding: 0.6rem;
+  font-family: Space Grotesk;
+}
+.main .main-container .card-form form .card-holder > div input:focus {
+  outline: none;
+}
+.main .main-container .card-form form .card-holder > div input::-webkit-input-placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+.main .main-container .card-form form .card-holder > div input::-moz-placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+.main .main-container .card-form form .card-holder > div input:-ms-input-placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+.main .main-container .card-form form .card-holder > div input::-ms-input-placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+.main .main-container .card-form form .card-holder > div input::placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+.main .main-container .card-form form .card-holder label {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.main .main-container .card-form form .card-holder input {
+  border: 2px solid hsl(270deg, 3%, 87%);
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+.main .main-container .card-form form .card-holder input[type=number] {
+  -moz-appearance: textfield;
+}
+.main .main-container .card-form form .card-holder .card-number .wrong-msg {
+  display: none;
+  margin-top: 0.5rem;
+  color: red;
+}
+.main .main-container .card-form form .card-holder .card-info-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+}
+.main .main-container .card-form form .card-holder .card-info-date label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+.main .main-container .card-form form .card-holder .card-info-date .wrong-msg {
+  display: none;
+  margin-top: 0.5rem;
+  color: red;
+}
+.main .main-container .card-form form .card-holder .card-info-date .exp-date {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.main .main-container .card-form form .card-holder .card-info-date .exp-date .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+}
+.main .main-container .card-form form .card-holder .card-info-date .cvc {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.main .main-container .card-form form .card-holder .card-info-date .cvc .wrong-msg {
+  display: none;
+  margin-top: 0.5rem;
+  color: red;
+}
+.main .main-container .card-form form .submit button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: hsl(278deg, 68%, 11%);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+}
+.main .main-container .complete-msg {
+  width: 100%;
+  text-align: center;
+}
+.main .main-container .complete-msg.hide {
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .main .main-container .complete-msg {
+    margin-top: 5rem;
+  }
+}
+.main .main-container .complete-msg .img {
+  margin-bottom: 1.5rem;
+}
+.main .main-container .complete-msg .msg h2 {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: hsl(278deg, 68%, 11%);
+  margin-bottom: 1rem;
+}
+.main .main-container .complete-msg .msg p {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 2.5rem;
+  color: hsl(279deg, 6%, 55%);
+}
+.main .main-container .complete-msg .btn {
+  text-align: center;
+}
+.main .main-container .complete-msg .btn button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: hsl(278deg, 68%, 11%);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+}/*# sourceMappingURL=card_details.css.map */
